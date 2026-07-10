@@ -1,0 +1,33 @@
+original_index,sentiment,text,removal_reason,decision
+1099,neutral,The issuer is solely responsible for the content of this announcement .,duplicate rows,removed
+1416,neutral,"The report profiles 614 companies including many key and niche players worldwide such as Black & Decker Corporation , Fiskars Corporation , Fiskars Brands , Inc. , Husqvarna Outdoor Products Inc. , K+S Group , Ryobi Technologies , Inc. , The Scotts Miracle-Gro Company , and Van Group , Inc. .",duplicate rows,removed
+2396,neutral,Ahlstrom 's share is quoted on the NASDAQ OMX Helsinki .,duplicate rows,removed
+2567,neutral,"SSH Communications Security Corporation is headquartered in Helsinki , Finland .",duplicate rows,removed
+3094,neutral,"Proha Plc ( Euronext :7327 ) announced today ( 19 May ) that its fully-owned subsidiary , Safran Software Solutions AS , has agreed to sell its 49 % share of Safran North America LLC to a SNA Holding AS , an investment group based in Norway .",duplicate rows,removed
+3206,neutral,"The company serves customers in various industries , including process and resources , industrial machinery , architecture , building , construction , electrical , transportation , electronics , chemical , petrochemical , energy , and information technology , as well as catering and households .",duplicate rows,removed
+79,positive,TELECOMWORLDWIRE-7 April 2006-TJ Group Plc sells stake in Morning Digital Design Oy Finnish IT company TJ Group Plc said on Friday 7 April that it had signed an agreement on selling its shares of Morning Digital Design Oy to Edita Oyj .,conflicting labels,removed
+789,neutral,The Group 's business is balanced by its broad portfolio of sports and presence in all major markets .,conflicting labels,removed
+1023,neutral,All are welcome .,contextless_or_boilerplate,removed
+1116,neutral,Welcome !,contextless_or_boilerplate,removed
+1461,neutral,You are warmly welcome !,contextless_or_boilerplate,removed
+1559,neutral,The fine print is here .,contextless_or_boilerplate,removed
+2356,neutral,`` We could be there .,contextless_or_boilerplate,removed
+2399,neutral,All rights reserved .,contextless_or_boilerplate,removed
+2471,neutral,He confirmed his view on July 6 .,contextless_or_boilerplate,removed
+2554,neutral,Registration is required .,contextless_or_boilerplate,removed
+2569,neutral,Status : Agreed,contextless_or_boilerplate,removed
+2720,neutral,`` It wo n't happen overnight .,contextless_or_boilerplate,removed
+2983,neutral,It 's not .,contextless_or_boilerplate,removed
+3040,neutral,ND = Not disclosed .,contextless_or_boilerplate,removed
+3061,neutral,NWC ANALYSIS :,contextless_or_boilerplate,removed
+3099,neutral,R&D Loan ) .,contextless_or_boilerplate,removed
+3425,neutral,This would be a huge process .,contextless_or_boilerplate,removed
+3450,neutral,What we think ?,contextless_or_boilerplate,removed
+3464,neutral,You 're not alone .,contextless_or_boilerplate,removed
+3486,neutral,`` This could be us .,contextless_or_boilerplate,removed
+3720,neutral,"pct lower at 4,442.10 .",contextless_or_boilerplate,removed
+3980,neutral,Why not subscribe to the magazine ?,contextless_or_boilerplate,removed
+4228,neutral,Rapala Fishing Frenzy 2009 .,contextless_or_boilerplate,removed
+4368,neutral,"zip , '' experts warned Tuesday .",contextless_or_boilerplate,removed
+4615,neutral,Liora 's got a brand-new bag .,contextless_or_boilerplate,removed
+4805,neutral,`` I 'm not sure what 's happening .,contextless_or_boilerplate,removed
