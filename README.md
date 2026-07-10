@@ -1,4 +1,4 @@
-# Fin Intelligence System v1
+# Financial Intelligence System v1
 
 A machine learning project for classifying financial news headlines into **positive**, **neutral**, or **negative** sentiment.
 
