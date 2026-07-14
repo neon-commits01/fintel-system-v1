@@ -1,0 +1,16 @@
+# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+tests/__pycache__/test_api.cpython-313-pytest-9.1.1.pyc
+app/__pycache__/main.cpython-313.pyc
+app/__pycache__/__init__.cpython-313.pyc
+
+# Environment variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
