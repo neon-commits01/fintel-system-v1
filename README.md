@@ -4,7 +4,7 @@ A machine learning project for classifying financial news headlines into **posit
 
 The goal of this project is to build a production-ready financial sentiment intelligence system, starting with classical NLP baselines and later upgrading to transformer-based financial language models.
 
-> **Status:** Classical baseline complete | FastAPI inference API complete locally
+> **Status:** Classical baseline complete | FastAPI inference API complete locally |
 > Docker deployment pending
 
 **Test Accuracy:** 0.7441 | **Test Macro F1:** 0.7077  
