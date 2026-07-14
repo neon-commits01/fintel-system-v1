@@ -4,15 +4,16 @@ A machine learning project for classifying financial news headlines into **posit
 
 The goal of this project is to build a production-ready financial sentiment intelligence system, starting with classical NLP baselines and later upgrading to transformer-based financial language models.
 
-> **Status:** Classical baseline complete | 
-> FastAPI deployment in progress
+> **Status:** Classical baseline complete | FastAPI inference API complete locally
+> Docker deployment pending
 
-**Macro F1: 0.7077** | 
-Beats majority baseline (0.5916) by 11.6 points
+**Test Accuracy:** 0.7441 | **Test Macro F1:** 0.7077  
+**Majority-Class Accuracy Baseline:** 0.5916  
+The selected model improves over the majority-class accuracy baseline by **+15.25 percentage points**.
 
 ## Project Status
 
-Current stage: **Classical baseline modeling completed**
+Current stage: **Classical baseline model completed and served through a local FastAPI API**
 
 Completed:
 
@@ -25,10 +26,16 @@ Completed:
 * Final test evaluation
 * Error analysis on wrong predictions
 * Best baseline model saved with joblib
+* FastAPI inference service
+* Single prediction endpoint: /predict
+* Batch prediction endpoint: /predict_batch
+* Health check endpoint: /health
+* Model metadata endpoint: /model-info
+* API input validation with Pydantic
+* API tests with pytest and FastAPI TestClient
 
 Planned next:
 
-* FastAPI prediction service
 * Dockerization
 * Deployment
 * FinBERT comparison
@@ -214,6 +221,13 @@ data/
 │   ├── dev_data.csv
 │   └── test_data.csv
 
+app/
+├── __init__.py
+└── main.py
+
+tests/
+└── test_api.py
+
 models/
 └── best_tfidf_linear_svm.joblib
 
@@ -230,12 +244,72 @@ reports/
 └── error_analysis_sample.csv
 ```
 
+## FastAPI Inference API
+
+The trained TF-IDF + Linear SVM pipeline is served through a FastAPI application.
+
+Available endpoints:
+
+| Method | Endpoint         | Purpose                                            |
+| ------ | ---------------- | -------------------------------------------------- |
+| GET    | `/health`        | Check API and model loading status                 |
+| GET    | `/model-info`    | Return model name, version, path, and classes      |
+| POST   | `/predict`       | Predict sentiment for one financial headline       |
+| POST   | `/predict_batch` | Predict sentiment for multiple financial headlines |
+
+Example request to `/predict`:
+
+```json
+{
+  "text": "Operating profit fell compared with the previous year."
+}
+```
+
+Example response:
+
+```json
+{
+  "sentiment": "negative",
+  "model_name": "TF-IDF + Linear SVM",
+  "model_version": "v1-baseline"
+}
+```
+
+Example request to `/predict_batch`:
+
+```json
+{
+  "texts": [
+    "Operating profit fell compared with the previous year.",
+    "The company signed a new contract worth EUR 10 million.",
+    "Financial terms were not disclosed."
+  ]
+}
+```
+
+Example response:
+
+```json
+{
+  "predictions": [
+    "negative",
+    "positive",
+    "neutral"
+  ],
+  "model_name": "TF-IDF + Linear SVM",
+  "model_version": "v1-baseline"
+}
+```
+
+The API validates blank inputs and rejects empty strings after whitespace stripping.
+
+
 ## How to Run
 
 Install dependencies:
 
 ```bash
-pip install pandas scikit-learn joblib
+pip install pandas scikit-learn joblib fastapi uvicorn pytest httpx
 ```
 
 Run notebooks in order:
@@ -246,17 +320,28 @@ Run notebooks in order:
 03_baseline_models.ipynb
 ```
 
-To load the saved model:
+Run the FastAPI app from the project root:
 
-```python
-import joblib
+```bash
+uvicorn app.main:app --reload
+```
 
-model = joblib.load("models/best_tfidf_linear_svm.joblib")
+Open the interactive API docs:
 
-sample_text = ["Operating profit fell compared with the previous year."]
-prediction = model.predict(sample_text)
+```text
+http://127.0.0.1:8000/docs
+```
 
-print(prediction)
+Run API tests:
+
+```bash
+python -m pytest
+```
+
+Current test status:
+
+```text
+6 passed
 ```
 
 ## Key Learnings
@@ -274,19 +359,22 @@ This project demonstrates:
 * Final test-set evaluation
 * Error analysis for model interpretation
 * Saving sklearn pipelines with joblib
+*  Building a FastAPI inference API around a saved sklearn pipeline
+* Request and response validation with Pydantic
+* API testing with pytest and FastAPI TestClient
+* Handling single and batch model predictions
 
 ## Next Steps
 
 Planned improvements:
 
-1. Build a FastAPI inference service
-2. Add `/predict` and `/predict_batch` endpoints
-3. Add request validation with Pydantic
-4. Dockerize the service
-5. Deploy the model
-6. Compare classical baselines against FinBERT
-7. Add model latency comparison
-8. Write final model card and project report
+1. Dockerize the FastAPI service
+2. Add a production-style `requirements.txt`
+3. Add API usage examples with curl
+4. Deploy the API
+5. Compare classical baselines against FinBERT
+6. Add model latency comparison
+7. Write final model card and project report
 
 ## Project Positioning
 
