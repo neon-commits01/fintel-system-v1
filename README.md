@@ -24,6 +24,33 @@ This is the first version of a larger financial NLP system. V1 focuses on buildi
 
 ---
 
+## Table of Contents
+
+- [Project Status](#project-status)
+- [The Problem](#the-problem)
+- [What It Does](#what-it-does)
+- [System Overview](#system-overview)
+- [Dataset](#dataset)
+- [Data Preparation](#data-preparation)
+- [Split Strategy](#split-strategy)
+- [Majority Baseline](#majority-baseline)
+- [Modeling Approach](#modeling-approach)
+- [Final Test Results](#final-test-results)
+- [Error Analysis](#error-analysis)
+- [FastAPI Inference API](#fastapi-inference-api)
+- [API Usage](#api-usage)
+- [Important API Note](#important-api-note)
+- [Run Locally](#run-locally)
+- [Run With Docker](#run-with-docker)
+- [Tests](#tests)
+- [Project Structure](#project-structure)
+- [Built With](#built-with)
+- [Limitations](#limitations)
+- [What’s Next](#whats-next)
+- [Project Positioning](#project-positioning)
+
+---
+
 ## Project Status
 
 **V1 Complete**
